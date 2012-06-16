@@ -2,10 +2,14 @@
 
 class Pages extends CI_Controller {
 
+
 	public function view($page = 'home') {
+		
+		require_once("Tweeter.php");
 
 		//page invalid
-		if (!file_exists('application/views/pages/' . $page . '.php')) {
+		if (!file_exists('application/views/pages/' . $page . '.php')) 
+		{
 			show_404();	
 		}
 
@@ -16,5 +20,7 @@ class Pages extends CI_Controller {
 		$this->load->view('pages/'.$page, $data);
 		$this->load->view('templates/footer', $data);
 
+
 	}
+
 }
